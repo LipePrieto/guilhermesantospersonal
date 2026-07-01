@@ -1,13 +1,12 @@
-
 // ==================== CONFIGURAÇÕES DO SITE ====================
-// Basta alterar os valores aqui e o site inteiro se atualiza automaticamente.
+// Altere os valores aqui e o site inteiro se atualiza sozinho.
 
 const CONFIG = {
 
     // ---------- DADOS DE CONTATO ----------
     whatsapp: "5514988095118",             // Número completo com DDD, sem traços ou espaços
     email: "contato@nexusvital.com.br",   // E-mail de contato
-    nomeProfissional: "Guilherme",        // Nome que aparece nos botões e chamadas
+    nomeProfissional: "Guilherme",        // Nome que aparece nos botões
 
     // ---------- TEXTO DO HERO ----------
     hero: {
@@ -39,7 +38,7 @@ const CONFIG = {
         ]
     },
 
-    // ---------- SEÇÃO BENEFÍCIOS ----------
+    // ---------- BENEFÍCIOS ----------
     beneficios: {
         titulo: "Benefícios da consultoria",
         tag: "Por que escolher o Nexus Vital",
@@ -53,14 +52,14 @@ const CONFIG = {
         ]
     },
 
-    // ---------- LINHA DO TEMPO (COMO FUNCIONA) ----------
+    // ---------- LINHA DO TEMPO ----------
     passos: [
         { numero: "1", titulo: "Primeira Conversa", texto: "Agendamos uma consulta inicial para entender seu momento atual, histórico e expectativas." },
         { numero: "2", titulo: "Plano Personalizado", texto: "Estruturamos um plano de ação individualizado, com metas realistas e progressivas." },
         { numero: "3", titulo: "Acompanhamento e Evolução", texto: "Mantemos contato próximo para avaliação contínua e celebração de conquistas." }
     ],
 
-    // ---------- SEÇÃO DIFERENCIAIS ----------
+    // ---------- DIFERENCIAIS ----------
     diferenciais: {
         titulo: "Diferenciais",
         tag: "O que nos torna únicos",
@@ -80,7 +79,7 @@ const CONFIG = {
             { estrelas: 5, texto: "Finalmente encontrei um profissional que entende o que é viver com fibromialgia. Método claro e humano.", nome: "Carlos A.", info: "38 anos, Belo Horizonte" },
             { estrelas: 5, texto: "O Nexus Vital me ajudou a reorganizar minha rotina e a encontrar pequenas alegrias no dia a dia.", nome: "Ana L.", info: "29 anos, Curitiba" }
         ],
-        disclaimer: "Depoimentos ilustrativos para fins de demonstração." // Apague ou altere conforme necessidade
+        disclaimer: "Depoimentos ilustrativos para fins de demonstração."
     },
 
     // ---------- FAQ ----------
