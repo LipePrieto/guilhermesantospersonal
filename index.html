@@ -1,9 +1,509 @@
-<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Nexus Vital</title><link rel="stylesheet" href="style.css"></head><body>
-<header><div class="logo">Nexus Vital</div><nav><a href="#sobre">Sobre</a><a href="#beneficios">Benefícios</a><a href="#faq">FAQ</a><a class="btn" href="https://wa.me/5514988095118?text=Olá%20Guilherme!%20Quero%20saber%20mais%20sobre%20o%20Nexus%20Vital.">WhatsApp</a></nav></header>
-<section class="hero"><div><h1>Uma nova perspectiva para conviver melhor com a fibromialgia</h1><p>Protótipo visual para apresentação do Método Nexus Vital.</p><a class="btn" href="https://wa.me/5514988095118">Falar com Guilherme</a></div><div class="card">Imagem ilustrativa</div></section>
-<section id="sobre"><h2>Sobre</h2><p>Este conteúdo é ilustrativo. Os textos finais serão substituídos pelo conteúdo oficial.</p></section>
-<section id="beneficios"><h2>Benefícios</h2><div class="grid"><div class="card">Rotina</div><div class="card">Bem-estar</div><div class="card">Consultoria</div><div class="card">E-book</div></div></section>
-<section id="faq"><h2>FAQ</h2><details><summary>O método promete cura?</summary><p>Não. Este é apenas um protótipo visual.</p></details></section>
-<footer>© Nexus Vital - Demonstração</footer>
-<a class="wa" href="https://wa.me/5514988095118">💬</a>
-<script src="script.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nexus Vital — Método de consultoria para pessoas com fibromialgia que buscam mais qualidade de vida.">
+    <title>Nexus Vital | Consultoria em Fibromialgia</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+
+    <!-- Phosphor Icons (leve, CDN) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header class="header" id="header">
+        <div class="container header__container">
+            <a href="#" class="logo" aria-label="Nexus Vital — Página inicial">
+                <span class="logo__icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.8" fill="none" opacity="0.9"/>
+                        <path d="M8 12L11 15L16 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+                <span class="logo__text">Nexus <span class="logo__text--bold">Vital</span></span>
+            </a>
+
+            <nav class="nav" id="nav">
+                <ul class="nav__list">
+                    <li><a href="#sobre" class="nav__link">Sobre</a></li>
+                    <li><a href="#metodo" class="nav__link">Método</a></li>
+                    <li><a href="#beneficios" class="nav__link">Benefícios</a></li>
+                    <li><a href="#como-funciona" class="nav__link">Como Funciona</a></li>
+                    <li><a href="#faq" class="nav__link">FAQ</a></li>
+                </ul>
+            </nav>
+
+            <a href="https://wa.me/5514988095118" class="btn btn--primary btn--sm header__cta" target="_blank" rel="noopener">
+                Agendar Consultoria
+                <i class="ph ph-arrow-right"></i>
+            </a>
+
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- ==================== HERO ==================== -->
+        <section class="hero" id="hero">
+            <div class="hero__bg"></div>
+            <div class="container hero__container">
+                <div class="hero__content">
+                    <span class="hero__tag">Consultoria especializada</span>
+                    <h1 class="hero__title">
+                        Redescubra o equilíbrio<br>do seu corpo e mente
+                    </h1>
+                    <p class="hero__subtitle">
+                        O método <strong>Nexus Vital</strong> foi desenvolvido para auxiliar pessoas com fibromialgia
+                        a encontrarem caminhos de bem-estar, respeitando os limites e potencialidades de cada indivíduo.
+                    </p>
+                    <div class="hero__actions">
+                        <a href="https://wa.me/5514988095118" class="btn btn--primary btn--lg" target="_blank" rel="noopener">
+                            <i class="ph ph-whatsapp-logo"></i>
+                            Quero falar no WhatsApp
+                        </a>
+                        <a href="#metodo" class="btn btn--outline btn--lg">
+                            Conheça o método
+                            <i class="ph ph-arrow-down"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero__image">
+                    <div class="hero__image-wrapper">
+                        <div class="hero__image-placeholder">
+                            <i class="ph ph-flower-lotus" style="font-size: 6rem; color: var(--color-secondary); opacity: 0.8;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SOBRE A FIBROMIALGIA ==================== -->
+        <section class="sobre section" id="sobre">
+            <div class="container">
+                <div class="section__header">
+                    <span class="section__tag">Compreendendo a condição</span>
+                    <h2 class="section__title">O que é a fibromialgia?</h2>
+                </div>
+                <div class="sobre__grid">
+                    <div class="sobre__text card card--glass">
+                        <p>
+                            A fibromialgia é uma síndrome clínica caracterizada por dor musculoesquelética crônica e generalizada,
+                            frequentemente acompanhada de fadiga, distúrbios do sono, alterações de memória e concentração,
+                            além de sensibilidade em pontos específicos do corpo.
+                        </p>
+                        <p>
+                            Estima-se que atinja cerca de 2% a 4% da população mundial, com maior prevalência entre mulheres.
+                            Por ser uma condição complexa e multifatorial, seu manejo exige uma abordagem integrativa,
+                            que considere aspectos físicos, emocionais e comportamentais.
+                        </p>
+                        <p class="sobre__disclaimer">
+                            *Este é um texto ilustrativo com finalidade exclusiva de demonstração do layout.
+                        </p>
+                    </div>
+                    <div class="sobre__image">
+                        <div class="sobre__image-placeholder">
+                            <i class="ph ph-brain" style="font-size: 4rem; color: var(--color-secondary); opacity: 0.7;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== MÉTODO NEXUS VITAL ==================== -->
+        <section class="metodo section section--alt" id="metodo">
+            <div class="container">
+                <div class="section__header">
+                    <span class="section__tag">Nossa abordagem</span>
+                    <h2 class="section__title">Método Nexus Vital</h2>
+                    <p class="section__subtitle">Uma visão integrativa que une ciência, acolhimento e estratégias personalizadas.</p>
+                </div>
+                <div class="cards-grid">
+                    <div class="card card--glass card--hover" data-reveal>
+                        <div class="card__icon">
+                            <i class="ph ph-compass"></i>
+                        </div>
+                        <h3 class="card__title">Avaliação Integral</h3>
+                        <p class="card__text">
+                            Análise aprofundada do histórico de saúde, hábitos de vida e rotina para compreender
+                            o contexto único de cada pessoa.
+                        </p>
+                    </div>
+                    <div class="card card--glass card--hover" data-reveal>
+                        <div class="card__icon">
+                            <i class="ph ph-heartbeat"></i>
+                        </div>
+                        <h3 class="card__title">Estratégias de Movimento</h3>
+                        <p class="card__text">
+                            Orientações baseadas em exercícios de baixo impacto, respeitando os limites corporais
+                            e promovendo o fortalecimento gradual.
+                        </p>
+                    </div>
+                    <div class="card card--glass card--hover" data-reveal>
+                        <div class="card__icon">
+                            <i class="ph ph-moon-stars"></i>
+                        </div>
+                        <h3 class="card__title">Higiene do Sono</h3>
+                        <p class="card__text">
+                            Técnicas e rotinas que favorecem o descanso noturno, essencial para a regulação
+                            da dor e do humor.
+                        </p>
+                    </div>
+                    <div class="card card--glass card--hover" data-reveal>
+                        <div class="card__icon">
+                            <i class="ph ph-scales"></i>
+                        </div>
+                        <h3 class="card__title">Equilíbrio Emocional</h3>
+                        <p class="card__text">
+                            Práticas de mindfulness, respiração consciente e ferramentas para lidar com o estresse
+                            do dia a dia.
+                        </p>
+                    </div>
+                    <div class="card card--glass card--hover" data-reveal>
+                        <div class="card__icon">
+                            <i class="ph ph-apple-logo"></i>
+                        </div>
+                        <h3 class="card__title">Nutrição Funcional</h3>
+                        <p class="card__text">
+                            Orientações alimentares que consideram alimentos anti-inflamatórios e a individualidade
+                            bioquímica.
+                        </p>
+                    </div>
+                    <div class="card card--glass card--hover" data-reveal>
+                        <div class="card__icon">
+                            <i class="ph ph-chat-centered-text"></i>
+                        </div>
+                        <h3 class="card__title">Acompanhamento Contínuo</h3>
+                        <p class="card__text">
+                            Suporte próximo e ajustes periódicos do plano de ação para garantir a evolução
+                            consistente.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== BENEFÍCIOS ==================== -->
+        <section class="beneficios section" id="beneficios">
+            <div class="container">
+                <div class="section__header">
+                    <span class="section__tag">Por que escolher o Nexus Vital</span>
+                    <h2 class="section__title">Benefícios da consultoria</h2>
+                </div>
+                <div class="beneficios__grid">
+                    <div class="beneficio-item" data-reveal>
+                        <div class="beneficio-item__icon">
+                            <i class="ph ph-user-circle-check"></i>
+                        </div>
+                        <div class="beneficio-item__content">
+                            <h3>Acompanhamento individualizado</h3>
+                            <p>Plano construído especificamente para você, considerando suas queixas, objetivos e rotina.</p>
+                        </div>
+                    </div>
+                    <div class="beneficio-item" data-reveal>
+                        <div class="beneficio-item__icon">
+                            <i class="ph ph-clock-countdown"></i>
+                        </div>
+                        <div class="beneficio-item__content">
+                            <h3>Otimização da rotina</h3>
+                            <p>Estratégias práticas para incluir hábitos saudáveis sem sobrecarregar seu dia a dia.</p>
+                        </div>
+                    </div>
+                    <div class="beneficio-item" data-reveal>
+                        <div class="beneficio-item__icon">
+                            <i class="ph ph-hand-heart"></i>
+                        </div>
+                        <div class="beneficio-item__content">
+                            <h3>Acolhimento e escuta ativa</h3>
+                            <p>Espaço seguro para compartilhar desafios, com respeito e empatia em cada etapa.</p>
+                        </div>
+                    </div>
+                    <div class="beneficio-item" data-reveal>
+                        <div class="beneficio-item__icon">
+                            <i class="ph ph-book-bookmark"></i>
+                        </div>
+                        <div class="beneficio-item__content">
+                            <h3>Educação em saúde</h3>
+                            <p>Compreensão aprofundada sobre a fibromialgia para que você se torne protagonista do seu cuidado.</p>
+                        </div>
+                    </div>
+                    <div class="beneficio-item" data-reveal>
+                        <div class="beneficio-item__icon">
+                            <i class="ph ph-trend-up"></i>
+                        </div>
+                        <div class="beneficio-item__content">
+                            <h3>Evolução mensurável</h3>
+                            <p>Acompanhamento de indicadores de bem-estar para visualizar seu progresso ao longo do tempo.</p>
+                        </div>
+                    </div>
+                    <div class="beneficio-item" data-reveal>
+                        <div class="beneficio-item__icon">
+                            <i class="ph ph-shield-check"></i>
+                        </div>
+                        <div class="beneficio-item__content">
+                            <h3>Segurança e confiança</h3>
+                            <p>Método baseado em evidências científicas e constantemente atualizado.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== COMO FUNCIONA ==================== -->
+        <section class="como-funciona section section--alt" id="como-funciona">
+            <div class="container">
+                <div class="section__header">
+                    <span class="section__tag">Jornada Nexus Vital</span>
+                    <h2 class="section__title">Como funciona</h2>
+                </div>
+                <div class="timeline">
+                    <div class="timeline__line"></div>
+                    <div class="timeline__steps">
+                        <div class="timeline__step" data-reveal>
+                            <div class="timeline__step-number">1</div>
+                            <div class="timeline__step-card card card--glass">
+                                <h3>Primeira Conversa</h3>
+                                <p>Agendamos uma consulta inicial para entender seu momento atual, histórico e expectativas.</p>
+                            </div>
+                        </div>
+                        <div class="timeline__step" data-reveal>
+                            <div class="timeline__step-number">2</div>
+                            <div class="timeline__step-card card card--glass">
+                                <h3>Plano Personalizado</h3>
+                                <p>Estruturamos um plano de ação individualizado, com metas realistas e ajustes progressivos.</p>
+                            </div>
+                        </div>
+                        <div class="timeline__step" data-reveal>
+                            <div class="timeline__step-number">3</div>
+                            <div class="timeline__step-card card card--glass">
+                                <h3>Acompanhamento e Evolução</h3>
+                                <p>Mantemos contato próximo para avaliação contínua, suporte e celebração de cada conquista.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== DIFERENCIAIS ==================== -->
+        <section class="diferenciais section" id="diferenciais">
+            <div class="container">
+                <div class="section__header">
+                    <span class="section__tag">O que nos torna únicos</span>
+                    <h2 class="section__title">Diferenciais</h2>
+                </div>
+                <div class="diferenciais__grid">
+                    <div class="card card--glass card--hover diferencial-card" data-reveal>
+                        <div class="diferencial-card__badge">Exclusivo</div>
+                        <h3>Metodologia proprietária</h3>
+                        <p>O Nexus Vital foi construído a partir de anos de estudo e prática clínica, integrando diversas áreas do conhecimento.</p>
+                    </div>
+                    <div class="card card--glass card--hover diferencial-card" data-reveal>
+                        <div class="diferencial-card__badge">Personalizado</div>
+                        <h3>Atendimento individual</h3>
+                        <p>Cada pessoa recebe um plano único. Nada de receitas prontas ou generalizações.</p>
+                    </div>
+                    <div class="card card--glass card--hover diferencial-card" data-reveal>
+                        <div class="diferencial-card__badge">Completo</div>
+                        <h3>Visão 360° da saúde</h3>
+                        <p>Olhamos para o ser humano como um todo: corpo, mente, ambiente e relações.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== DEPOIMENTOS ==================== -->
+        <section class="depoimentos section section--alt" id="depoimentos">
+            <div class="container">
+                <div class="section__header">
+                    <span class="section__tag">Quem já conhece</span>
+                    <h2 class="section__title">Depoimentos</h2>
+                </div>
+                <div class="depoimentos__grid">
+                    <div class="card card--glass depoimento-card" data-reveal>
+                        <div class="depoimento-card__stars">
+                            <i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i>
+                        </div>
+                        <p class="depoimento-card__text">
+                            "O acolhimento e a atenção aos detalhes fizeram toda a diferença na minha jornada. Hoje me sinto mais preparada para lidar com os desafios diários."
+                        </p>
+                        <div class="depoimento-card__author">
+                            <div class="depoimento-card__avatar">
+                                <i class="ph ph-user"></i>
+                            </div>
+                            <div>
+                                <strong>Maria S.</strong>
+                                <span>42 anos, São Paulo</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card card--glass depoimento-card" data-reveal>
+                        <div class="depoimento-card__stars">
+                            <i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i>
+                        </div>
+                        <p class="depoimento-card__text">
+                            "Finalmente encontrei um profissional que entende o que é viver com fibromialgia. O método é claro, objetivo e extremamente humano."
+                        </p>
+                        <div class="depoimento-card__author">
+                            <div class="depoimento-card__avatar">
+                                <i class="ph ph-user"></i>
+                            </div>
+                            <div>
+                                <strong>Carlos A.</strong>
+                                <span>38 anos, Belo Horizonte</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card card--glass depoimento-card" data-reveal>
+                        <div class="depoimento-card__stars">
+                            <i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i><i class="ph ph-star-fill"></i>
+                        </div>
+                        <p class="depoimento-card__text">
+                            "O Nexus Vital me ajudou a reorganizar minha rotina e a encontrar pequenas alegrias no dia a dia que eu havia esquecido."
+                        </p>
+                        <div class="depoimento-card__author">
+                            <div class="depoimento-card__avatar">
+                                <i class="ph ph-user"></i>
+                            </div>
+                            <div>
+                                <strong>Ana L.</strong>
+                                <span>29 anos, Curitiba</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="depoimentos__disclaimer">*Depoimentos ilustrativos para fins de demonstração.</p>
+            </div>
+        </section>
+
+        <!-- ==================== FAQ ==================== -->
+        <section class="faq section" id="faq">
+            <div class="container">
+                <div class="section__header">
+                    <span class="section__tag">Dúvidas frequentes</span>
+                    <h2 class="section__title">Perguntas e Respostas</h2>
+                </div>
+                <div class="faq__list">
+                    <div class="faq__item" data-reveal>
+                        <button class="faq__question" aria-expanded="false">
+                            <span>O que é o método Nexus Vital?</span>
+                            <i class="ph ph-plus"></i>
+                        </button>
+                        <div class="faq__answer">
+                            <p>É uma consultoria individualizada que integra estratégias de movimento, sono, nutrição e equilíbrio emocional para auxiliar pessoas com fibromialgia a melhorarem sua qualidade de vida. Este é um texto ilustrativo para demonstração.</p>
+                        </div>
+                    </div>
+                    <div class="faq__item" data-reveal>
+                        <button class="faq__question" aria-expanded="false">
+                            <span>Preciso de encaminhamento médico?</span>
+                            <i class="ph ph-plus"></i>
+                        </button>
+                        <div class="faq__answer">
+                            <p>Não é obrigatório, mas recomendamos que você mantenha acompanhamento médico regular. A consultoria atua de forma complementar, e não substitui tratamentos médicos convencionais.</p>
+                        </div>
+                    </div>
+                    <div class="faq__item" data-reveal>
+                        <button class="faq__question" aria-expanded="false">
+                            <span>Como são realizadas as consultas?</span>
+                            <i class="ph ph-plus"></i>
+                        </button>
+                        <div class="faq__answer">
+                            <p>As consultas podem ser realizadas de forma online ou presencial, de acordo com sua preferência e localização. Utilizamos plataformas seguras e o atendimento é sempre individual.</p>
+                        </div>
+                    </div>
+                    <div class="faq__item" data-reveal>
+                        <button class="faq__question" aria-expanded="false">
+                            <span>Em quanto tempo posso notar melhoras?</span>
+                            <i class="ph ph-plus"></i>
+                        </button>
+                        <div class="faq__answer">
+                            <p>Cada pessoa responde de maneira única. Nosso foco está em construir uma base sólida de hábitos que, com consistência, tendem a trazer benefícios perceptíveis ao longo do tempo. Este texto é meramente ilustrativo.</p>
+                        </div>
+                    </div>
+                    <div class="faq__item" data-reveal>
+                        <button class="faq__question" aria-expanded="false">
+                            <span>O método substitui medicamentos?</span>
+                            <i class="ph ph-plus"></i>
+                        </button>
+                        <div class="faq__answer">
+                            <p>Não. O Nexus Vital é uma abordagem complementar. Qualquer ajuste na medicação deve ser discutido exclusivamente com seu médico responsável.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== CTA FINAL ==================== -->
+        <section class="cta-final section" id="cta-final">
+            <div class="container">
+                <div class="cta-final__card card--glass">
+                    <span class="cta-final__tag">Pronto para dar o primeiro passo?</span>
+                    <h2 class="cta-final__title">Vamos conversar sobre sua jornada</h2>
+                    <p class="cta-final__text">
+                        Agende uma conversa sem compromisso. Será um prazer ouvir sua história e explicar como o Nexus Vital pode apoiar você.
+                    </p>
+                    <a href="https://wa.me/5514988095118" class="btn btn--primary btn--lg" target="_blank" rel="noopener">
+                        <i class="ph ph-whatsapp-logo"></i>
+                        Falar com Guilherme
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer" id="footer">
+        <div class="container footer__container">
+            <div class="footer__brand">
+                <a href="#" class="logo">
+                    <span class="logo__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.8" fill="none"/>
+                            <path d="M8 12L11 15L16 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                    <span class="logo__text">Nexus <span class="logo__text--bold">Vital</span></span>
+                </a>
+                <p class="footer__slogan">Consultoria em qualidade de vida para pessoas com fibromialgia.</p>
+            </div>
+
+            <div class="footer__contato">
+                <h4>Contato</h4>
+                <a href="https://wa.me/5514988095118" class="footer__whatsapp" target="_blank" rel="noopener">
+                    <i class="ph ph-whatsapp-logo"></i>
+                    +55 14 98809-5118
+                </a>
+                <p><i class="ph ph-envelope"></i> contato@nexusvital.com.br</p>
+            </div>
+
+            <div class="footer__social">
+                <h4>Redes Sociais</h4>
+                <div class="footer__social-links">
+                    <a href="#" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="ph ph-youtube-logo"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <div class="container">
+                <p>&copy; 2026 Nexus Vital. Todos os direitos reservados.</p>
+                <p class="footer__disclaimer">Este site é um protótipo visual. Conteúdo meramente ilustrativo.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
