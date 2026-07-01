@@ -1,120 +1,219 @@
-// ==================== CONFIGURAÇÕES DO SITE ====================
-// Altere os valores aqui e o site inteiro se atualiza sozinho.
+// script.js — Nexus Vital Landing Page
+document.addEventListener('DOMContentLoaded', () => {
 
-const CONFIG = {
+    // ==================== APLICA CONFIGURAÇÕES DO config.js ====================
+    function aplicarConfig() {
+        // Atualiza links de WhatsApp
+        document.querySelectorAll('[data-config="whatsapp"]').forEach(el => {
+            el.href = `https://wa.me/${CONFIG.whatsapp}`;
+        });
+        document.querySelectorAll('[data-config="whatsappNome"]').forEach(el => {
+            el.href = `https://wa.me/${CONFIG.whatsapp}`;
+            el.innerHTML = `<i class="ph ph-whatsapp-logo"></i> Falar com ${CONFIG.nomeProfissional}`;
+        });
+        document.querySelectorAll('[data-config="whatsappCompleto"]').forEach(el => {
+            el.href = `https://wa.me/${CONFIG.whatsapp}`;
+            const numeroFormatado = CONFIG.whatsapp.replace(/(\d{2})(\d{2})(\d{5})(\d{4})/, '+$1 $2 $3-$4');
+            el.innerHTML = `<i class="ph ph-whatsapp-logo"></i> ${numeroFormatado}`;
+        });
 
-    // ---------- DADOS DE CONTATO ----------
-    whatsapp: "5514988095118",             // Número completo com DDD, sem traços ou espaços
-    email: "contato@nexusvital.com.br",   // E-mail de contato
-    nomeProfissional: "Guilherme",        // Nome que aparece nos botões
+        // Atualiza campos de texto simples (data-config com string)
+        document.querySelectorAll('[data-config]').forEach(el => {
+            const key = el.getAttribute('data-config');
+            if (['whatsapp', 'whatsappNome', 'whatsappCompleto'].includes(key)) return;
 
-    // ---------- TEXTO DO HERO ----------
-    hero: {
-        titulo: "Redescubra o equilíbrio do seu corpo e mente",
-        subtitulo: "O método Nexus Vital foi desenvolvido para auxiliar pessoas com fibromialgia a encontrarem caminhos de bem-estar, respeitando os limites e potencialidades de cada indivíduo.",
-        tag: "Consultoria especializada"
-    },
+            const value = key.split('.').reduce((obj, k) => obj?.[k], CONFIG);
+            if (value && typeof value === 'string') {
+                el.textContent = value;
+            }
+        });
 
-    // ---------- SEÇÃO SOBRE ----------
-    sobre: {
-        titulo: "O que é a fibromialgia?",
-        tag: "Compreendendo a condição",
-        texto1: "A fibromialgia é uma síndrome clínica caracterizada por dor musculoesquelética crônica e generalizada, frequentemente acompanhada de fadiga, distúrbios do sono, alterações de memória e concentração, além de sensibilidade em pontos específicos do corpo.",
-        texto2: "Estima-se que atinja cerca de 2% a 4% da população mundial, com maior prevalência entre mulheres. Por ser uma condição complexa e multifatorial, seu manejo exige uma abordagem integrativa."
-    },
+        // Gera cards do método
+        const metodoGrid = document.getElementById('metodo-cards');
+        if (metodoGrid && CONFIG.metodo.cards) {
+            metodoGrid.innerHTML = CONFIG.metodo.cards.map(card => `
+                <div class="card card--glass card--hover" data-reveal>
+                    <div class="card__icon"><i class="ph ${card.icone}"></i></div>
+                    <h3 class="card__title">${card.titulo}</h3>
+                    <p class="card__text">${card.texto}</p>
+                </div>
+            `).join('');
+        }
 
-    // ---------- SEÇÃO MÉTODO ----------
-    metodo: {
-        titulo: "Método Nexus Vital",
-        tag: "Nossa abordagem",
-        subtitulo: "Uma visão integrativa que une ciência, acolhimento e estratégias personalizadas.",
-        cards: [
-            { icone: "ph-compass", titulo: "Avaliação Integral", texto: "Análise aprofundada do histórico de saúde, hábitos de vida e rotina para compreender o contexto único de cada pessoa." },
-            { icone: "ph-heartbeat", titulo: "Estratégias de Movimento", texto: "Orientações baseadas em exercícios de baixo impacto, respeitando os limites corporais e promovendo fortalecimento gradual." },
-            { icone: "ph-moon-stars", titulo: "Higiene do Sono", texto: "Técnicas e rotinas que favorecem o descanso noturno, essencial para a regulação da dor e do humor." },
-            { icone: "ph-scales", titulo: "Equilíbrio Emocional", texto: "Práticas de mindfulness, respiração consciente e ferramentas para lidar com o estresse." },
-            { icone: "ph-apple-logo", titulo: "Nutrição Funcional", texto: "Orientações alimentares que consideram alimentos anti-inflamatórios e individualidade." },
-            { icone: "ph-chat-centered-text", titulo: "Acompanhamento Contínuo", texto: "Suporte próximo e ajustes periódicos do plano para evolução consistente." }
-        ]
-    },
+        // Gera benefícios
+        const beneficiosGrid = document.getElementById('beneficios-grid');
+        if (beneficiosGrid && CONFIG.beneficios.itens) {
+            beneficiosGrid.innerHTML = CONFIG.beneficios.itens.map(item => `
+                <div class="beneficio-item" data-reveal>
+                    <div class="beneficio-item__icon"><i class="ph ${item.icone}"></i></div>
+                    <div class="beneficio-item__content">
+                        <h3>${item.titulo}</h3>
+                        <p>${item.texto}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
 
-    // ---------- BENEFÍCIOS ----------
-    beneficios: {
-        titulo: "Benefícios da consultoria",
-        tag: "Por que escolher o Nexus Vital",
-        itens: [
-            { icone: "ph-user-circle-check", titulo: "Acompanhamento individualizado", texto: "Plano construído especificamente para você, considerando suas queixas e objetivos." },
-            { icone: "ph-clock-countdown", titulo: "Otimização da rotina", texto: "Estratégias práticas para incluir hábitos saudáveis sem sobrecarregar seu dia." },
-            { icone: "ph-hand-heart", titulo: "Acolhimento e escuta ativa", texto: "Espaço seguro para compartilhar desafios com empatia." },
-            { icone: "ph-book-bookmark", titulo: "Educação em saúde", texto: "Compreensão sobre fibromialgia para você ser protagonista do cuidado." },
-            { icone: "ph-trend-up", titulo: "Evolução mensurável", texto: "Acompanhamento de indicadores de bem-estar ao longo do tempo." },
-            { icone: "ph-shield-check", titulo: "Segurança e confiança", texto: "Método baseado em evidências e constantemente atualizado." }
-        ]
-    },
+        // Gera timeline
+        const timelineSteps = document.getElementById('timeline-steps');
+        if (timelineSteps && CONFIG.passos) {
+            timelineSteps.innerHTML = CONFIG.passos.map(passo => `
+                <div class="timeline__step" data-reveal>
+                    <div class="timeline__step-number">${passo.numero}</div>
+                    <div class="timeline__step-card card card--glass">
+                        <h3>${passo.titulo}</h3>
+                        <p>${passo.texto}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
 
-    // ---------- LINHA DO TEMPO ----------
-    passos: [
-        { numero: "1", titulo: "Primeira Conversa", texto: "Agendamos uma consulta inicial para entender seu momento atual, histórico e expectativas." },
-        { numero: "2", titulo: "Plano Personalizado", texto: "Estruturamos um plano de ação individualizado, com metas realistas e progressivas." },
-        { numero: "3", titulo: "Acompanhamento e Evolução", texto: "Mantemos contato próximo para avaliação contínua e celebração de conquistas." }
-    ],
+        // Gera diferenciais
+        const difGrid = document.getElementById('diferenciais-grid');
+        if (difGrid && CONFIG.diferenciais.cards) {
+            difGrid.innerHTML = CONFIG.diferenciais.cards.map(card => `
+                <div class="card card--glass card--hover diferencial-card" data-reveal>
+                    <div class="diferencial-card__badge">${card.badge}</div>
+                    <h3>${card.titulo}</h3>
+                    <p>${card.texto}</p>
+                </div>
+            `).join('');
+        }
 
-    // ---------- DIFERENCIAIS ----------
-    diferenciais: {
-        titulo: "Diferenciais",
-        tag: "O que nos torna únicos",
-        cards: [
-            { badge: "Exclusivo", titulo: "Metodologia proprietária", texto: "Construído a partir de anos de estudo e prática, integrando diversas áreas." },
-            { badge: "Personalizado", titulo: "Atendimento individual", texto: "Cada pessoa recebe um plano único. Nada de receitas prontas." },
-            { badge: "Completo", titulo: "Visão 360° da saúde", texto: "Olhamos para o ser humano como um todo: corpo, mente e ambiente." }
-        ]
-    },
+        // Gera depoimentos
+        const depoimentosGrid = document.getElementById('depoimentos-grid');
+        if (depoimentosGrid && CONFIG.depoimentos.lista) {
+            depoimentosGrid.innerHTML = CONFIG.depoimentos.lista.map(dep => `
+                <div class="card card--glass depoimento-card" data-reveal>
+                    <div class="depoimento-card__stars">
+                        ${Array(dep.estrelas).fill('<i class="ph ph-star-fill"></i>').join('')}
+                    </div>
+                    <p class="depoimento-card__text">${dep.texto}</p>
+                    <div class="depoimento-card__author">
+                        <div class="depoimento-card__avatar"><i class="ph ph-user"></i></div>
+                        <div>
+                            <strong>${dep.nome}</strong>
+                            <span>${dep.info}</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
 
-    // ---------- DEPOIMENTOS ----------
-    depoimentos: {
-        titulo: "Depoimentos",
-        tag: "Quem já conhece",
-        lista: [
-            { estrelas: 5, texto: "O acolhimento e a atenção aos detalhes fizeram toda a diferença na minha jornada. Hoje me sinto mais preparada.", nome: "Maria S.", info: "42 anos, São Paulo" },
-            { estrelas: 5, texto: "Finalmente encontrei um profissional que entende o que é viver com fibromialgia. Método claro e humano.", nome: "Carlos A.", info: "38 anos, Belo Horizonte" },
-            { estrelas: 5, texto: "O Nexus Vital me ajudou a reorganizar minha rotina e a encontrar pequenas alegrias no dia a dia.", nome: "Ana L.", info: "29 anos, Curitiba" }
-        ],
-        disclaimer: "Depoimentos ilustrativos para fins de demonstração."
-    },
+        // Gera FAQ
+        const faqList = document.getElementById('faq-list');
+        if (faqList && CONFIG.faq.perguntas) {
+            faqList.innerHTML = CONFIG.faq.perguntas.map((item) => `
+                <div class="faq__item" data-reveal>
+                    <button class="faq__question" aria-expanded="false">
+                        <span>${item.pergunta}</span>
+                        <i class="ph ph-plus"></i>
+                    </button>
+                    <div class="faq__answer">
+                        <p>${item.resposta}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
 
-    // ---------- FAQ ----------
-    faq: {
-        titulo: "Perguntas e Respostas",
-        tag: "Dúvidas frequentes",
-        perguntas: [
-            { pergunta: "O que é o método Nexus Vital?", resposta: "Consultoria individualizada que integra estratégias de movimento, sono, nutrição e equilíbrio emocional para pessoas com fibromialgia." },
-            { pergunta: "Preciso de encaminhamento médico?", resposta: "Não é obrigatório, mas recomendamos manter acompanhamento médico regular. Atuamos de forma complementar." },
-            { pergunta: "Como são realizadas as consultas?", resposta: "Online ou presenciais, conforme sua preferência e localização. Atendimento sempre individual." },
-            { pergunta: "Em quanto tempo noto melhoras?", resposta: "Cada pessoa responde de maneira única. Focamos em construir hábitos consistentes." },
-            { pergunta: "O método substitui medicamentos?", resposta: "Não. O Nexus Vital é complementar. Medicamentos devem ser discutidos com seu médico." }
-        ]
-    },
+        // Gera redes sociais do footer
+        const footerSocial = document.getElementById('footer-social');
+        if (footerSocial && CONFIG.footer.redes) {
+            footerSocial.innerHTML = `
+                <a href="${CONFIG.footer.redes.instagram}" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+                <a href="${CONFIG.footer.redes.youtube}" aria-label="YouTube"><i class="ph ph-youtube-logo"></i></a>
+                <a href="${CONFIG.footer.redes.linkedin}" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
+            `;
+        }
 
-    // ---------- CTA FINAL ----------
-    ctaFinal: {
-        titulo: "Vamos conversar sobre sua jornada",
-        tag: "Pronto para dar o primeiro passo?",
-        texto: "Agende uma conversa sem compromisso. Será um prazer ouvir sua história e explicar como podemos apoiar você."
-    },
-
-    // ---------- CORES (opcional) ----------
-    cores: {
-        primaria: "#1a2a3a",   // Azul escuro
-        secundaria: "#4dab8a"  // Verde suave
-    },
-
-    // ---------- RODAPÉ ----------
-    footer: {
-        slogan: "Consultoria em qualidade de vida para pessoas com fibromialgia.",
-        redes: {
-            instagram: "#",
-            youtube: "#",
-            linkedin: "#"
+        // Aplica cores personalizadas
+        if (CONFIG.cores) {
+            document.documentElement.style.setProperty('--color-primary', CONFIG.cores.primaria);
+            document.documentElement.style.setProperty('--color-secondary', CONFIG.cores.secundaria);
         }
     }
-};
+
+    aplicarConfig();
+
+    // ==================== HEADER SCROLL ====================
+    const header = document.getElementById('header');
+    function updateHeader() {
+        header.classList.toggle('scrolled', window.scrollY > 50);
+    }
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    updateHeader();
+
+    // ==================== MOBILE MENU ====================
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const nav = document.getElementById('nav');
+    const overlay = document.createElement('div');
+    overlay.className = 'mobile-overlay';
+    document.body.appendChild(overlay);
+
+    function openMenu() {
+        nav.classList.add('active');
+        mobileToggle.classList.add('active');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        mobileToggle.setAttribute('aria-label', 'Fechar menu');
+    }
+    function closeMenu() {
+        nav.classList.remove('active');
+        mobileToggle.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+        mobileToggle.setAttribute('aria-label', 'Abrir menu');
+    }
+    mobileToggle.addEventListener('click', () => {
+        nav.classList.contains('active') ? closeMenu() : openMenu();
+    });
+    overlay.addEventListener('click', closeMenu);
+    document.querySelectorAll('.nav__link').forEach(link => link.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && nav.classList.contains('active')) closeMenu();
+    });
+
+    // ==================== SCROLL REVEAL ====================
+    const revealElements = document.querySelectorAll('[data-reveal]');
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // ==================== FAQ ACCORDION ====================
+    document.addEventListener('click', (e) => {
+        const questionBtn = e.target.closest('.faq__question');
+        if (!questionBtn) return;
+        const item = questionBtn.closest('.faq__item');
+        const isActive = item.classList.contains('active');
+        document.querySelectorAll('.faq__item').forEach(i => {
+            i.classList.remove('active');
+            i.querySelector('.faq__question').setAttribute('aria-expanded', 'false');
+        });
+        if (!isActive) {
+            item.classList.add('active');
+            questionBtn.setAttribute('aria-expanded', 'true');
+        }
+    });
+
+    // ==================== SMOOTH SCROLL ====================
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href === '#') return;
+            const target = document.querySelector(href);
+            if (target) {
+                e.preventDefault();
+                const headerOffset = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 72;
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+            }
+        });
+    });
+});
