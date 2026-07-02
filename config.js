@@ -1,6 +1,3 @@
-// ==================== CONFIGURAÇÕES DO SITE ====================
-// Altere os valores aqui e o site inteiro se atualiza sozinho.
-
 const CONFIG = {
 
     // ---------- DADOS DE CONTATO ----------
@@ -13,6 +10,20 @@ const CONFIG = {
         titulo: "Redescubra o equilíbrio do seu corpo e mente",
         subtitulo: "O método Nexus Vital foi desenvolvido para auxiliar pessoas com fibromialgia a encontrarem caminhos de bem-estar, respeitando os limites e potencialidades de cada indivíduo.",
         tag: "Consultoria especializada"
+    },
+
+    // ---------- SEÇÃO QUEM É O GUILHERME ----------
+    quem: {
+        tag: "O criador do método",
+        titulo: "Quem é o Guilherme?",
+        subtitulo: "Criador do Método Nexus Vital",
+        texto: "Minha jornada começou quando percebi que as abordagens tradicionais para fibromialgia deixavam lacunas importantes. Decidi unir ciência, acolhimento e estratégias personalizadas para ajudar pessoas a resgatarem sua qualidade de vida. Hoje, o Nexus Vital é a concretização desse propósito.",
+        credencial1Titulo: "Formação especializada",
+        credencial1Texto: "Especialista em saúde integrativa e manejo da dor crônica.",
+        credencial2Titulo: "Experiência real",
+        credencial2Texto: "Centenas de pessoas acompanhadas ao longo dos últimos anos.",
+        credencial3Titulo: "Abordagem humana",
+        credencial3Texto: "Cada plano é único — porque cada história importa."
     },
 
     // ---------- SEÇÃO SOBRE ----------
@@ -117,18 +128,4 @@ const CONFIG = {
             linkedin: "#"
         }
     }
-
-    // ---------- SEÇÃO QUEM É O GUILHERME ----------
-    quem: {
-        tag: "O criador do método",
-        titulo: "Quem é o Guilherme?",
-        subtitulo: "Criador do Método Nexus Vital",
-        texto: "Minha jornada começou quando percebi que as abordagens tradicionais para fibromialgia deixavam lacunas importantes. Decidi unir ciência, acolhimento e estratégias personalizadas para ajudar pessoas a resgatarem sua qualidade de vida. Hoje, o Nexus Vital é a concretização desse propósito.",
-        credencial1Titulo: "Formação especializada",
-        credencial1Texto: "Especialista em saúde integrativa e manejo da dor crônica.",
-        credencial2Titulo: "Experiência real",
-        credencial2Texto: "Centenas de pessoas acompanhadas ao longo dos últimos anos.",
-        credencial3Titulo: "Abordagem humana",
-        credencial3Texto: "Cada plano é único — porque cada história importa."
-    },
 };
