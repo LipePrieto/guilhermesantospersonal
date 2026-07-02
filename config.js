@@ -4,9 +4,9 @@
 const CONFIG = {
 
     // ---------- DADOS DE CONTATO ----------
-    whatsapp: "5514988095118",             // Número completo com DDD, sem traços ou espaços
-    email: "contato@nexusvital.com.br",   // E-mail de contato
-    nomeProfissional: "Guilherme",        // Nome que aparece nos botões
+    whatsapp: "5514988095118",
+    email: "contato@nexusvital.com.br",
+    nomeProfissional: "Guilherme",
 
     // ---------- TEXTO DO HERO ----------
     hero: {
@@ -102,10 +102,10 @@ const CONFIG = {
         texto: "Agende uma conversa sem compromisso. Será um prazer ouvir sua história e explicar como podemos apoiar você."
     },
 
-    // ---------- CORES (opcional) ----------
+    // ---------- CORES ----------
     cores: {
-        primaria: "#1a2a3a",   // Azul escuro
-        secundaria: "#4dab8a"  // Verde suave
+        primaria: "#1a2a3a",
+        secundaria: "#4dab8a"
     },
 
     // ---------- RODAPÉ ----------
