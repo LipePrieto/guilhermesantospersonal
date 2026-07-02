@@ -412,6 +412,7 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
+    will-change: transform;
 }
 
 .hero__image-placeholder {
@@ -447,12 +448,6 @@ button {
     color: var(--color-gray-700);
     margin-bottom: 16px;
     line-height: 1.75;
-}
-
-.sobre__disclaimer {
-    font-size: 0.8rem !important;
-    color: var(--color-gray-400) !important;
-    font-style: italic;
 }
 
 .sobre__image-placeholder {
@@ -592,7 +587,6 @@ button {
     font-weight: 700;
     color: var(--color-secondary);
     font-family: var(--font-serif);
-    background: var(--color-white);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
 }
 
@@ -792,9 +786,9 @@ button {
     text-align: center;
     padding: 64px 40px;
     background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: var(--glass-blur);
-    -webkit-backdrop-filter: var(--glass-blur);
-    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.9);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
     border-radius: var(--radius-xl);
     max-width: 800px;
@@ -951,6 +945,172 @@ button {
     transform: translateY(0);
 }
 
+/* ==================== DARK MODE ==================== */
+body.dark-mode {
+    --color-primary: #e2e8f0;
+    --color-gray-800: #e2e8f0;
+    --color-gray-700: #cbd5e1;
+    --color-gray-600: #94a3b8;
+    --color-gray-300: #475569;
+    --color-gray-200: #334155;
+    --color-gray-100: #1e293b;
+    --color-gray-50: #0f172a;
+    --color-white: #1e293b;
+    --color-black: #f8fafc;
+    --glass-bg: rgba(30, 41, 59, 0.7);
+    --glass-border: rgba(51, 65, 85, 0.5);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    background-color: #0f172a;
+}
+
+body.dark-mode .header.scrolled {
+    background: rgba(15, 23, 42, 0.85);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .card--glass {
+    background: rgba(30, 41, 59, 0.7);
+}
+
+body.dark-mode .btn--outline {
+    color: var(--color-gray-300);
+    border-color: var(--color-gray-200);
+}
+
+body.dark-mode .section--alt {
+    background-color: #0a0f1a;
+}
+
+body.dark-mode .footer {
+    background: #020617;
+}
+
+body.dark-mode .hero {
+    background: radial-gradient(circle at 20% 50%, rgba(77, 171, 138, 0.1) 0%, transparent 60%),
+                radial-gradient(circle at 80% 20%, rgba(226, 232, 240, 0.05) 0%, transparent 50%);
+}
+
+/* ==================== BOTÃO DARK MODE ==================== */
+.dark-mode-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-gray-700);
+    font-size: 1.4rem;
+    padding: 6px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.dark-mode-toggle:hover {
+    background: var(--color-gray-100);
+    color: var(--color-primary);
+}
+
+.header__actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+@media (max-width: 1024px) {
+    .header__actions {
+        margin-right: 56px;
+    }
+    .dark-mode-toggle {
+        display: none;
+    }
+    #dark-mode-toggle-mobile {
+        display: flex;
+        margin-top: 16px;
+        font-size: 1.2rem;
+        color: var(--color-gray-600);
+    }
+}
+
+@media (min-width: 1025px) {
+    #dark-mode-toggle-mobile {
+        display: none;
+    }
+}
+
+/* ==================== BOTÃO FLUTUANTE WHATSAPP ==================== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    width: 60px;
+    height: 60px;
+    background: #25d366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    z-index: 999;
+    transition: transform var(--transition-bounce), box-shadow var(--transition-fast);
+    animation: pulse-whatsapp 2s infinite;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
+    animation: none;
+}
+
+@keyframes pulse-whatsapp {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* ==================== BOTÃO VOLTAR AO TOPO ==================== */
+.back-to-top {
+    position: fixed;
+    bottom: 104px;
+    right: 32px;
+    width: 44px;
+    height: 44px;
+    background: var(--color-white);
+    color: var(--color-primary);
+    border: 1px solid var(--color-gray-200);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all var(--transition-smooth);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    z-index: 998;
+    cursor: pointer;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background: var(--color-gray-100);
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+body.dark-mode .back-to-top {
+    background: var(--color-gray-800);
+    border-color: var(--color-gray-600);
+    color: var(--color-white);
+}
+
 /* ==================== RESPONSIVIDADE ==================== */
 
 /* Tablet (até 1024px) */
@@ -1068,17 +1228,18 @@ button {
         display: none;
     }
 
-    .header__cta-mobile {
-        display: flex;
-    }
-
     .mobile-toggle {
         display: flex;
     }
 
-    .nav .header__cta {
-        display: inline-flex;
-        margin-top: 16px;
+    .whatsapp-float {
+        bottom: 24px;
+        right: 24px;
+    }
+
+    .back-to-top {
+        bottom: 88px;
+        right: 24px;
     }
 }
 
@@ -1175,6 +1336,22 @@ button {
 
     .faq__answer p {
         padding: 0 20px 16px;
+    }
+
+    .whatsapp-float {
+        width: 52px;
+        height: 52px;
+        font-size: 1.8rem;
+        bottom: 24px;
+        right: 24px;
+    }
+
+    .back-to-top {
+        bottom: 88px;
+        right: 24px;
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
     }
 }
 
