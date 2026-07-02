@@ -117,4 +117,18 @@ const CONFIG = {
             linkedin: "#"
         }
     }
+
+    // ---------- SEÇÃO QUEM É O GUILHERME ----------
+    quem: {
+        tag: "O criador do método",
+        titulo: "Quem é o Guilherme?",
+        subtitulo: "Criador do Método Nexus Vital",
+        texto: "Minha jornada começou quando percebi que as abordagens tradicionais para fibromialgia deixavam lacunas importantes. Decidi unir ciência, acolhimento e estratégias personalizadas para ajudar pessoas a resgatarem sua qualidade de vida. Hoje, o Nexus Vital é a concretização desse propósito.",
+        credencial1Titulo: "Formação especializada",
+        credencial1Texto: "Especialista em saúde integrativa e manejo da dor crônica.",
+        credencial2Titulo: "Experiência real",
+        credencial2Texto: "Centenas de pessoas acompanhadas ao longo dos últimos anos.",
+        credencial3Titulo: "Abordagem humana",
+        credencial3Texto: "Cada plano é único — porque cada história importa."
+    },
 };
