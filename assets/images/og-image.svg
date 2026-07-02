@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+    <rect width="1200" height="630" fill="#1a2a3a"/>
+    <circle cx="200" cy="315" r="120" stroke="#4dab8a" stroke-width="6" fill="none"/>
+    <path d="M140 315 L190 365 L260 280" stroke="#4dab8a" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="380" y="300" font-family="Georgia, serif" font-size="64" fill="white" font-weight="bold">Nexus Vital</text>
+    <text x="380" y="380" font-family="Arial, sans-serif" font-size="32" fill="#a3d9c8">Consultoria em Fibromialgia</text>
+</svg>
