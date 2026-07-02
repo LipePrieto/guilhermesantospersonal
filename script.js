@@ -17,11 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
             el.innerHTML = `<i class="ph ph-whatsapp-logo"></i> ${numeroFormatado}`;
         });
 
-        // Atualiza campos de texto simples (data-config com string)
+        // Atualiza campos de texto simples
         document.querySelectorAll('[data-config]').forEach(el => {
             const key = el.getAttribute('data-config');
             if (['whatsapp', 'whatsappNome', 'whatsappCompleto'].includes(key)) return;
-
             const value = key.split('.').reduce((obj, k) => obj?.[k], CONFIG);
             if (value && typeof value === 'string') {
                 el.textContent = value;
@@ -135,6 +134,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
     aplicarConfig();
 
+    // ==================== DARK MODE TOGGLE ====================
+    const darkToggle = document.getElementById('dark-mode-toggle');
+    const darkToggleMobile = document.getElementById('dark-mode-toggle-mobile');
+    const body = document.body;
+
+    function setDarkMode(enabled) {
+        body.classList.toggle('dark-mode', enabled);
+        const icon = enabled ? 'ph-sun' : 'ph-moon';
+        if (darkToggle) darkToggle.innerHTML = `<i class="ph ${icon}"></i>`;
+        if (darkToggleMobile) darkToggleMobile.innerHTML = `<i class="ph ${icon}"></i>`;
+        localStorage.setItem('darkMode', enabled ? 'true' : 'false');
+    }
+
+    // Carregar preferência salva ou do sistema
+    const savedMode = localStorage.getItem('darkMode');
+    if (savedMode === null) {
+        setDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches);
+    } else {
+        setDarkMode(savedMode === 'true');
+    }
+
+    [darkToggle, darkToggleMobile].forEach(btn => {
+        if (btn) {
+            btn.addEventListener('click', () => {
+                setDarkMode(!body.classList.contains('dark-mode'));
+            });
+        }
+    });
+
     // ==================== HEADER SCROLL ====================
     const header = document.getElementById('header');
     function updateHeader() {
@@ -142,6 +170,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     window.addEventListener('scroll', updateHeader, { passive: true });
     updateHeader();
+
+    // ==================== PARALLAX SUAVE NO HERO ====================
+    const heroImageWrapper = document.getElementById('hero-image-wrapper');
+    if (heroImageWrapper) {
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            const heroSection = document.querySelector('.hero');
+            if (heroSection) {
+                const heroHeight = heroSection.offsetHeight;
+                if (scrollY <= heroHeight) {
+                    const translateY = scrollY * 0.1;
+                    heroImageWrapper.style.transform = `translateY(${translateY}px)`;
+                }
+            }
+        }, { passive: true });
+    }
 
     // ==================== MOBILE MENU ====================
     const mobileToggle = document.getElementById('mobile-toggle');
@@ -185,6 +229,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
     revealElements.forEach(el => revealObserver.observe(el));
 
+    // Re-observar elementos adicionados dinamicamente
+    setTimeout(() => {
+        document.querySelectorAll('[data-reveal]').forEach(el => {
+            if (!el.classList.contains('revealed')) revealObserver.observe(el);
+        });
+    }, 100);
+
     // ==================== FAQ ACCORDION ====================
     document.addEventListener('click', (e) => {
         const questionBtn = e.target.closest('.faq__question');
@@ -216,4 +267,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // ==================== BOTÃO VOLTAR AO TOPO ====================
+    const backToTopBtn = document.getElementById('back-to-top');
+    if (backToTopBtn) {
+        window.addEventListener('scroll', () => {
+            backToTopBtn.classList.toggle('show', window.scrollY > 600);
+        }, { passive: true });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
 });
