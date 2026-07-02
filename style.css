@@ -2,7 +2,6 @@
 
 /* ==================== CSS CUSTOM PROPERTIES ==================== */
 :root {
-    /* Cores principais */
     --color-primary: #1a2a3a;
     --color-primary-light: #253745;
     --color-secondary: #4dab8a;
@@ -19,32 +18,26 @@
     --color-white: #ffffff;
     --color-black: #0f172a;
 
-    /* Gradientes */
     --gradient-primary: linear-gradient(135deg, #1a2a3a 0%, #253745 100%);
     --gradient-secondary: linear-gradient(135deg, #4dab8a 0%, #6bc4a4 100%);
     --gradient-hero: radial-gradient(circle at 20% 50%, rgba(77, 171, 138, 0.08) 0%, transparent 60%),
                       radial-gradient(circle at 80% 20%, rgba(26, 42, 58, 0.06) 0%, transparent 50%);
 
-    /* Glassmorphism */
     --glass-bg: rgba(255, 255, 255, 0.7);
     --glass-border: rgba(255, 255, 255, 0.9);
     --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
     --glass-blur: blur(12px);
 
-    /* Tipografia */
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
 
-    /* Tamanhos */
     --container-max: 1200px;
     --header-height: 72px;
 
-    /* Transições */
     --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 
-    /* Bordas */
     --radius-sm: 8px;
     --radius-md: 16px;
     --radius-lg: 24px;
@@ -253,7 +246,6 @@ button {
     height: 100%;
 }
 
-/* Logo */
 .logo {
     display: flex;
     align-items: center;
@@ -278,7 +270,6 @@ button {
     font-weight: 700;
 }
 
-/* Navegação */
 .nav__list {
     display: flex;
     gap: 32px;
@@ -313,7 +304,6 @@ button {
     width: 100%;
 }
 
-/* Mobile toggle */
 .mobile-toggle {
     display: none;
     flex-direction: column;
@@ -433,6 +423,127 @@ button {
 @keyframes float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-12px); }
+}
+
+/* ==================== SEÇÃO QUEM É O GUILHERME ==================== */
+.quem-e__grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 64px;
+    align-items: center;
+}
+
+.quem-e__imagem {
+    display: flex;
+    justify-content: center;
+}
+
+.quem-e__foto {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 2px solid var(--glass-border);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform var(--transition-smooth);
+}
+
+.quem-e__foto:hover {
+    transform: scale(1.03);
+}
+
+.quem-e__foto-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: var(--color-secondary-bg);
+}
+
+.quem-e__foto-placeholder i {
+    font-size: 6rem;
+    color: var(--color-secondary);
+    opacity: 0.6;
+}
+
+.quem-e__conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.quem-e__conteudo .section__tag {
+    align-self: flex-start;
+}
+
+.quem-e__conteudo .section__title {
+    text-align: left;
+    margin-bottom: 4px;
+}
+
+.quem-e__subtitulo {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-secondary);
+    margin-bottom: 8px;
+}
+
+.quem-e__texto {
+    font-size: 1.05rem;
+    color: var(--color-gray-700);
+    line-height: 1.75;
+    margin-bottom: 24px;
+}
+
+.quem-e__credenciais {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.quem-e__credencial {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.quem-e__credencial-icone {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    background: var(--color-secondary-bg);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-secondary);
+    font-size: 1.5rem;
+}
+
+.quem-e__credencial-conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.quem-e__credencial-conteudo strong {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+.quem-e__credencial-conteudo span {
+    font-size: 0.95rem;
+    color: var(--color-gray-600);
+    line-height: 1.5;
 }
 
 /* ==================== SOBRE ==================== */
@@ -1147,6 +1258,30 @@ body.dark-mode .back-to-top {
         height: 240px;
     }
 
+    .quem-e__grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .quem-e__conteudo .section__tag {
+        align-self: center;
+    }
+
+    .quem-e__conteudo .section__title {
+        text-align: center;
+    }
+
+    .quem-e__foto {
+        width: 220px;
+        height: 220px;
+    }
+
+    .quem-e__credencial {
+        justify-content: center;
+        text-align: left;
+    }
+
     .sobre__grid {
         grid-template-columns: 1fr;
     }
@@ -1195,7 +1330,6 @@ body.dark-mode .back-to-top {
         font-size: 1.4rem;
     }
 
-    /* Menu mobile */
     .nav {
         position: fixed;
         top: 0;
@@ -1290,6 +1424,19 @@ body.dark-mode .back-to-top {
         height: 180px;
     }
 
+    .quem-e__foto {
+        width: 180px;
+        height: 180px;
+    }
+
+    .quem-e__subtitulo {
+        font-size: 1.3rem;
+    }
+
+    .quem-e__texto {
+        font-size: 1rem;
+    }
+
     .cards-grid {
         grid-template-columns: 1fr;
     }
@@ -1372,167 +1519,4 @@ body.dark-mode .back-to-top {
 .mobile-overlay.active {
     opacity: 1;
     pointer-events: auto;
-}
-
-/* ==================== SEÇÃO QUEM É O GUILHERME ==================== */
-.quem-e__grid {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 64px;
-    align-items: center;
-}
-
-.quem-e__imagem {
-    display: flex;
-    justify-content: center;
-}
-
-.quem-e__foto {
-    width: 280px;
-    height: 280px;
-    border-radius: 50%;
-    overflow: hidden;
-    background: var(--glass-bg);
-    backdrop-filter: var(--glass-blur);
-    -webkit-backdrop-filter: var(--glass-blur);
-    border: 2px solid var(--glass-border);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform var(--transition-smooth);
-}
-
-.quem-e__foto:hover {
-    transform: scale(1.03);
-}
-
-.quem-e__foto-placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    background: var(--color-secondary-bg);
-}
-
-.quem-e__foto-placeholder i {
-    font-size: 6rem;
-    color: var(--color-secondary);
-    opacity: 0.6;
-}
-
-.quem-e__conteudo {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.quem-e__conteudo .section__tag {
-    align-self: flex-start;
-}
-
-.quem-e__conteudo .section__title {
-    text-align: left;
-    margin-bottom: 4px;
-}
-
-.quem-e__subtitulo {
-    font-family: var(--font-serif);
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--color-secondary);
-    margin-bottom: 8px;
-}
-
-.quem-e__texto {
-    font-size: 1.05rem;
-    color: var(--color-gray-700);
-    line-height: 1.75;
-    margin-bottom: 24px;
-}
-
-.quem-e__credenciais {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.quem-e__credencial {
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-}
-
-.quem-e__credencial-icone {
-    width: 48px;
-    height: 48px;
-    min-width: 48px;
-    background: var(--color-secondary-bg);
-    border-radius: var(--radius-sm);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-secondary);
-    font-size: 1.5rem;
-}
-
-.quem-e__credencial-conteudo {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-}
-
-.quem-e__credencial-conteudo strong {
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: var(--color-primary);
-}
-
-.quem-e__credencial-conteudo span {
-    font-size: 0.95rem;
-    color: var(--color-gray-600);
-    line-height: 1.5;
-}
-
-/* Responsivo */
-@media (max-width: 1024px) {
-    .quem-e__grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        text-align: center;
-    }
-
-    .quem-e__conteudo .section__tag {
-        align-self: center;
-    }
-
-    .quem-e__conteudo .section__title {
-        text-align: center;
-    }
-
-    .quem-e__foto {
-        width: 220px;
-        height: 220px;
-    }
-
-    .quem-e__credencial {
-        justify-content: center;
-        text-align: left;
-    }
-}
-
-@media (max-width: 640px) {
-    .quem-e__foto {
-        width: 180px;
-        height: 180px;
-    }
-
-    .quem-e__subtitulo {
-        font-size: 1.3rem;
-    }
-
-    .quem-e__texto {
-        font-size: 1rem;
-    }
 }
