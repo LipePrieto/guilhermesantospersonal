@@ -1,4 +1,78 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none">
-    <circle cx="12" cy="12" r="10" stroke="#4dab8a" stroke-width="2" fill="none"/>
-    <path d="M8 12L11 15L16 9" stroke="#4dab8a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+
+    <defs>
+        <linearGradient id="leafGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#34D399"/>
+            <stop offset="100%" stop-color="#84CC16"/>
+        </linearGradient>
+
+        <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#1D4ED8"/>
+            <stop offset="100%" stop-color="#34D399"/>
+        </linearGradient>
+    </defs>
+
+    <!-- Fundo -->
+    <circle
+        cx="256"
+        cy="256"
+        r="240"
+        fill="#071B35"/>
+
+    <!-- Anel -->
+    <circle
+        cx="256"
+        cy="256"
+        r="205"
+        fill="none"
+        stroke="url(#ringGradient)"
+        stroke-width="10"
+        stroke-linecap="round"
+        stroke-dasharray="1160"
+        stroke-dashoffset="120"/>
+
+    <!-- N -->
+    <path
+        d="
+        M155 360
+        L155 150
+        L280 310
+        L280 150"
+        fill="none"
+        stroke="#FFFFFF"
+        stroke-width="28"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+
+    <!-- V -->
+    <path
+        d="
+        M255 185
+        L335 360
+        L415 185"
+        fill="none"
+        stroke="url(#leafGradient)"
+        stroke-width="28"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+
+    <!-- Folha -->
+    <path
+        d="
+        M395 135
+        C435 120 455 150 445 185
+        C435 220 400 235 372 218
+        C382 190 387 162 395 135Z"
+        fill="url(#leafGradient)"/>
+
+    <!-- Nervura -->
+    <path
+        d="
+        M386 208
+        C399 188 414 168 432 147"
+        fill="none"
+        stroke="#FFFFFF"
+        stroke-width="4"
+        stroke-linecap="round"/>
+
 </svg>
